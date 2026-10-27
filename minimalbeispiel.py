@@ -55,11 +55,11 @@ def build_ontology(world: World):
             ProcessCause(pname, label=[text], affectsQuantity=[q[x] for x in qtys],
                          mustViolate=[onto[m] for m in musts])
 
-        Imp().set_as_rule("affectsChannel(?h, ?c), participatesIn(?c, ?r) -> mayViolate(?h, ?r)")
-        Imp().set_as_rule("affectsQuantity(?h, ?q), measures(?c, ?q), participatesInProcessSensitive(?c, ?r)"
-                          " -> mayViolate(?h, ?r)")
-        Imp().set_as_rule("Violated(?r), cannotViolate(?h, ?r) -> refutedBy(?h, ?r)")
-        Imp().set_as_rule("Satisfied(?r), mustViolate(?h, ?r) -> refutedBy(?h, ?r)")
+        Imp(label=["C1"]).set_as_rule("affectsChannel(?h, ?c), participatesIn(?c, ?r) -> mayViolate(?h, ?r)")
+        Imp(label=["C2"]).set_as_rule("affectsQuantity(?h, ?q), measures(?c, ?q), participatesInProcessSensitive(?c, ?r)"
+                                      " -> mayViolate(?h, ?r)")
+        Imp(label=["W1"]).set_as_rule("Violated(?r), cannotViolate(?h, ?r) -> refutedBy(?h, ?r)")
+        Imp(label=["W2"]).set_as_rule("Satisfied(?r), mustViolate(?h, ?r) -> refutedBy(?h, ?r)")
     return onto
 
 
