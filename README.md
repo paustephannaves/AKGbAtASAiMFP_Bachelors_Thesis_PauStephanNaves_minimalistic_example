@@ -13,10 +13,4 @@ to explain the basic functionality of the intended framework.
 
     python minimalbeispiel.py
 
-If Java is not located at `/opt/homebrew/opt/openjdk/bin/java` (Homebrew default on macOS),
-set the path explicitly:
 
-    JAVA_EXE=/path/to/java python minimalbeispiel.py
-
-The script prints the derived knowledge and the finding for each of the three test runs,
-and writes the ontology to `minimal_kb.owl` (can be opened in Protégé).
